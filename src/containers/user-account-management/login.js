@@ -38,12 +38,12 @@ class Login extends React.Component {
 
   login(user) {
       var users = [
-        { "id": 1, "name": "Admin", "password": "1234","role":{"id":1,"name":"admin"} },
-        { "id": 2, "name": "PL", "password": "1234","role":{"id":2,"name":"ProjectLead"} },
-        { "id": 3, "name": "TL", "password": "1234","role":{"id":3,"name":"TeamLead"} },
-        { "id": 4, "name": "PR", "password": "1234","role":{"id":4,"name":"PhotoResearcher"} },
-        { "id": 5, "name": "TR", "password": "1234","role":{"id":5,"name":"TextResearcher"} },
-        { "id": 6, "name": "Customer", "password": "1234","role":{"id":6,"name":"Customer"} }
+        { "id": 1, "name": "Admin", "password": "1234","roles":["Admin"] },
+        { "id": 2, "name": "PL", "password": "1234","roles":["PL"] },
+        { "id": 3, "name": "TL", "password": "1234","roles":["TL"] },
+        { "id": 4, "name": "PR", "password": "1234","roles":["PR"] },
+        { "id": 5, "name": "TR", "password": "1234","roles":["TR"] },
+        { "id": 6, "name": "Customer", "password": "1234","roles":["Customer"] }
       ];
       let loginUser=_.find(users, {'name': user.email,'password':user.password});
       localStorage.setItem("loginUser", JSON.stringify(loginUser));
