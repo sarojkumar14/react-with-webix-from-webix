@@ -35,7 +35,7 @@ const MyTasks = ({ match }) => {
 ];
    var linkList = productsData.map( (product) => {
      return(
-       <li>
+       <li key={product.id}>
          <Link to={`${match.url}/${product.id}`}>
            {product.name}
          </Link>

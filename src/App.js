@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link,Switch,Route } from 'react-router-dom';
+import { Link,Switch,Route,withRouter } from 'react-router-dom';
 
 import './assets/App.css';
 
@@ -8,13 +8,22 @@ import Projects from './containers/projects/projects';
 import MyTasks from './containers/my-tasks/my-tasks';
 import NotFoundPage from './containers/other-pages/not-found-page';
 
+const SignOut=withRouter(({ history }) => (
+      <button onClick={() => {
+        localStorage.setItem("loginUser", null);
+        history.push('/');
+      }}>Sign out</button>
+  )
+);
+
 class App extends Component {
   render() {
+    let user=JSON.parse(localStorage.getItem("loginUser"));
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
- 
+        <h1 className="App-title">Hi {user.name}! Welcome to React</h1>
+       <SignOut />
         <nav className="navbar navbar-light">
           <ul className="nav navbar-nav">
             <li><Link to="/">Homes</Link></li>

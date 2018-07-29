@@ -3,7 +3,7 @@ import { Switch,Route ,Redirect} from 'react-router-dom';
 
 import App from './App';
 import Register from './containers/user-account-management/register';
-import Login , {fakeAuth } from './containers/user-account-management/login';
+import Login from './containers/user-account-management/login';
 import ForgotPassword from './containers/user-account-management/forgot-password';
 
 class Main extends Component {
@@ -29,7 +29,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
   return (
     <Route
       {...rest}
-      render={(props) => fakeAuth.isAuthenticated === true
+      render={(props) =>JSON.parse(localStorage.getItem('loginUser'))!=null
         ? <Component {...props} />
         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />} />
   )

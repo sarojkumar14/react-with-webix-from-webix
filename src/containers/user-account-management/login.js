@@ -31,7 +31,7 @@ class Login extends React.Component {
 
     this.state = {
       redirectToReferrer: false,
-      data:{'email':'saroj','password':1234}
+      data:{'email':'Admin','password':1234}
     }
     this.login = this.login.bind(this);
   }
@@ -46,11 +46,9 @@ class Login extends React.Component {
         { "id": 6, "name": "Customer", "password": "1234","role":{"id":6,"name":"Customer"} }
       ];
       let loginUser=_.find(users, {'name': user.email,'password':user.password});
-      localStorage.setItem("loginUser", loginUser);
+      localStorage.setItem("loginUser", JSON.stringify(loginUser));
     
-    fakeAuth.authenticate(() => {
       this.setState({ redirectToReferrer: true })
-    })
   }
 
   render() {
@@ -65,7 +63,7 @@ class Login extends React.Component {
     
     return (
       <div>
-        <p>You must log in to view the page at {from.pathname}</p>
+        {/* <p>You must log in to view the page at {from.pathname}</p> */}
         {/* <button onClick={this.login}>Log in</button> */}
         <Webix ui={getForm(this.login)} data={this.state.data}/>
       </div>
@@ -73,17 +71,6 @@ class Login extends React.Component {
   }
 
 
-}
-
-/* A fake authentication function */
-
-export const fakeAuth = {
-
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-     setTimeout(cb, 100)
-  },
 }
 
 export default Login
