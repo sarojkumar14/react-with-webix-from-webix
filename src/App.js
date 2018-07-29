@@ -60,7 +60,7 @@ class App extends Component {
         {hasRole(user, ["Admin","PL","TL","PR","TR","Customer"]) && <Route exact path='/' component={Dashboard} />}
       {hasRole(user, ['Admin']) && <Route path='/projects' component={Projects} />}
       {hasRole(user, ["Admin","PL","TL"]) && <Route path='/my-tasks' component={MyTasks} />}
-      {hasRole(user, ['admin',"PR","TR"]) && <Route path='/prtr' component={()=>{<p>PR TR</p>}} />}
+      {hasRole(user, ['admin',"PR","TR"]) && <Route path='/prtr' component={()=>(<p>PR TR</p>)} />}
 
 
 
