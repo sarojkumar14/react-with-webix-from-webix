@@ -5,7 +5,8 @@ import App from './App';
 import Register from './containers/user-account-management/register';
 import Login from './containers/user-account-management/login';
 import ForgotPassword from './containers/user-account-management/forgot-password';
-
+import WebixComponentPage from './containers/webix-component-page/webix-component-page'
+import CreateProjectPage from './components/create-project/create-project-page'
 
 class Main extends Component {
   render() {
@@ -15,7 +16,9 @@ class Main extends Component {
 
       <Route exact path="/register" component={Register}/>
        <Route exact  path="/login" component={Login}/>
+       <Route exact  path="/webix-component" component={WebixComponentPage}/>
        <Route exact path="/forgot-password" component={ForgotPassword}/>
+       <Route exact path="/createProjectPage" component={CreateProjectPage}/>
        <PrivateRoute path='/' component = {App} />
        {/* <Route path="/" component={App}/> */}
        {/* <Route path="*" component={ForgotPassword}/> */}
